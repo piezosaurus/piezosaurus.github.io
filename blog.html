@@ -99,10 +99,12 @@
                     <p class="post-meta">Posted on Jan 19, 2023</p>
                     <h4 class="post-subtitle">Assembled first batch of Macro Snap PCBs - Jan 14</h4>
                     <p>Using the reflow method of PCB assembly, I aligned a stencil to three macro-snap Main Logic Boards (MLBs) and applied solder paste to the boards. I then used all of the components ordered previously and a set of tweezers to carefully place the components onto the relevant pads. This was done carefully as some of the packages for the components were quite small, including the chip antenna that was sized as an 0201 component. Once all components were carefully placed, all three PCBs were placed into a reflow oven that was set with the same heating profile as indicated by the solder paste datasheet. Once completed, the boards were removed and then visually inspected for any shifted components or solder bridges during reflow. These issues were reworked, which lead to the final step of power and debug validation that consisted of testing the power rails for continuity, isolation and appropriate voltage in addition to communication with the main MCU over the debug protocol. Once this was verified, the first order bring-up of the MLBs was complete.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/compute-pcb.jpg" width="300" alt="Compute module PCB front and back views">
                     <h4 class="post-subtitle">Manufacturing of first set of connector modules - Jan 15</h4>
                     <p>In order to route the “Macro-bus” that contains the main voltage and analog rails from each of the FSRs and direct them to the compute module, specific connector modules that will also allow the user to resize the armband were created. They contain a printed male and female bracket, 2 magnets, ribbon cable, 5 pogo pins and 5 contact pads to create magnetic pogo pin connectors that will snap and mate together to extend an armband while routing the main signals.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/connector-v1.png" width="300" alt="Views of connector modules">
                     <h4 class="post-subtitle">Getting started on the Android app - Jan 17</h4>
-                    <p>To run the SVM on the app, we found Smile, a library containing machine learning algorithms for languages including Java and Kotlin. This is perfect for us to use in the Android app. We tried out the library in a Jupyter Notebook using a small dataset of FSR sensor values we gathered previously using an Arduino and used the data to train a SVM. We were able to achieve 80% accuracy with cross validation which was similar to the results we've seen before.</p>
+                    <p>To run the SVM on the app, we found Smile, a library containing machine learning algorithms for languages including Java and Kotlin. This is perfect for us to use in the Android app. We tried out the library in a Jupyter Notebook using a small dataset of FSR sensor values we gathered previously using an Arduino and used the data to train a SVM. We were able to achieve ~80% accuracy with cross validation which was similar to the results we've seen before.</p>
                     <p>In order to use Smile library on an Android device, it needs to have a minSdkVersion of 26 and our devices used an older version. So we decided to use an emulator for app development for now. We were able to run the SVM in the emulator, but had some trouble reading and writing files to internal storage since we are new to Android development. </p>
                 </div>
 
@@ -111,11 +113,16 @@
                 <div class="post-preview">
                     
                     <h2 class="post-title">
-                        Week 1 & Winter Break Progress
+                        Week 1 & MTE 481 Progress
                     </h2>
                     <p class="post-meta">Posted on Jan 12, 2023</p>
                     <h4 class="post-subtitle">Designed PCBs - Nov 5</h4>
                     <p>In order to fit the electronics needed for the Macro Snap project on a wearable device, close collaboration with the mechanical team was required to dimension the boards correctly. This defined the amount of components and size of battery that could fit in the device. From size constraints and determining the sensor specifications, (FSR circuits, haptic module, LED indicators) schematics were created in Altium Designer. These schematics were then used to layout the PCBs for the FSR, compute and connector modules.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/compute-pcb-design.png" height="150" alt="Compute module PCB design render">
+                    <img style="margin-bottom: 20px;" src="img/blog/fsr-pcb-design.png" height="150" alt="FSR module PCB design render">
+                    <h4 class="post-subtitle">Designed housing for components - Nov 20</h4>
+                    <p>Along with the design of the PCBs, the CAD is created to house each component. The product consists of three types of modules: the compute, FSR, and interlock modules, that joined together to create the armband. Our mechanical design is minimal and as small as possible so that it is unobtrusive to the user. These modules will be 3D printed and assembled together.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/cad.png" width="350" alt="CAD of component housing">
                     <h4 class="post-subtitle">Sent PCBs to be fabricated and ordered BOM - Dec 27</h4>
                     <p>Once the PCBs had been designed and the BOM finalized based on active and in stock components, the PCBs were manufactured as 4 layer boards at JLCPCB. The components were all sourced and purchased from Digikey.</p>
                     <h4 class="post-subtitle">Using libsvm for SVM training and inference - Jan 7</h4>
@@ -133,7 +140,7 @@
                         <li>Modify interlock mechanism so when it slides in place, the wires won’t cross</li>
                         <li>Remove the backing for the wire connector (will use heat shrink to keep the wires together instead of housing)</li>
                     </ul>
-                    
+                    <img style="margin-bottom: 20px;" src="img/blog/printed-housing.jpg" width="450" alt="PCB inside 3D printed housings">
                 </div>
             </div>
         </div>
