@@ -84,10 +84,31 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <h2 class="post-title">
+                        Week 4 Progress
+                    </h2>
+                    <p class="post-meta">..To be posted on Feb 3, 2023</p>
+                    
+                </div>
+
+                <hr>
+
+                <div class="post-preview">
+                    <h2 class="post-title">
                         Week 3 Progress
                     </h2>
-                    <p class="post-meta">..To be posted on Jan 27, 2023</p>
-                    
+                    <p class="post-meta">Posted on Jan 27, 2023</p>
+                    <h4 class="post-subtitle">FSR connector module assembly - Jan 20</h4>
+                    <p>We attempted the second set of Macro Snap connector modules assembly. Shortly after, we found our methodology was inaccurate and imprecise for the amount of build time that it took, in addition to the quality of the final product. The contacts made between the custom pogo pin magnetic connectors were not steady, and so we had to add elastic bands to the connectors to hold them together as the strength of the magnet was not sufficient to overcome build inaccuracies. The decision to buy off-the-shelf connectors was made, and a set of 5 pin magnetic pogo connectors was purchased.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/connector-elastic.jpg" width="250" alt="Connectors with elastic bands">
+                    <img style="margin-left: 30px; margin-bottom: 20px;" src="img/blog/ordered-connectors.png" width="200" alt="New connectors we ordered">
+                    <h4 class="post-subtitle">CAD and printing of 2nd iteration of housing components - Jan 23</h4>
+                    <p>Since we decided to use off-the-shelf connectors, we needed to update the CAD models to accommodate them. We also just received the shipment for the LEDs that go into the modules. When we tried to put in the LED the slot in the housing for it was a bit too small so we also enlarged the slot in the compute module. However for the FSR modules, we are going to keep the old design and drill a larger hole for the LED. Since the tolerance for the old housing is pretty tight and we already placed the PCBs and FSR sensors, it is difficult and time consuming to take them out.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/printed-housing-v2.jpg" width="250" alt="CAD of component housing">
+                    <h4 class="post-subtitle">BLE firmware development - Jan 24</h4>
+                    <p>Firmware of the Macro Snap board was developed to broadcast all values read from the ADC, program status, calibration button status and the closed loop status (i.e. if the band has been fully connected back together). This was verified through the NRF Connect App as the correct packets were sent through the Eddystone Beacon setup on the device. This makes the device a BLE broadcaster with a specific packet structure for rapid broadcasting of FSR and status information to the Macro Snap app.</p>
+                    <h4 class="post-subtitle">Android app receiving data from BLE beacon - Jan 26</h4>
+                    <p>A BLE scanner is implemented in the Android app to receive data transmitted from the Macro Snap board. To filter out all other near by devices, we check that the device name matches ours. After receiving the service data (which is in a byte array) from the scan, we convert the items in the array to unsigned integer values which becomes the same as the broadcasted values. </p>
+                    <img style="margin-bottom: 20px;" src="img/blog/ble-info.jpg" width="300" alt="BLE device info">
                 </div>
 
                 <hr>
@@ -98,7 +119,7 @@
                     </h2>
                     <p class="post-meta">Posted on Jan 19, 2023</p>
                     <h4 class="post-subtitle">Assembled first batch of Macro Snap PCBs - Jan 14</h4>
-                    <p>Using the reflow method of PCB assembly, I aligned a stencil to three macro-snap Main Logic Boards (MLBs) and applied solder paste to the boards. I then used all of the components ordered previously and a set of tweezers to carefully place the components onto the relevant pads. This was done carefully as some of the packages for the components were quite small, including the chip antenna that was sized as an 0201 component. Once all components were carefully placed, all three PCBs were placed into a reflow oven that was set with the same heating profile as indicated by the solder paste datasheet. Once completed, the boards were removed and then visually inspected for any shifted components or solder bridges during reflow. These issues were reworked, which lead to the final step of power and debug validation that consisted of testing the power rails for continuity, isolation and appropriate voltage in addition to communication with the main MCU over the debug protocol. Once this was verified, the first order bring-up of the MLBs was complete.</p>
+                    <p>Using the reflow method of PCB assembly, I aligned a stencil to three Macro Snap Main Logic Boards (MLBs) and applied solder paste to the boards. I then used all of the components ordered previously and a set of tweezers to carefully place the components onto the relevant pads. This was done carefully as some of the packages for the components were quite small, including the chip antenna that was sized as an 0201 component. Once all components were carefully placed, all three PCBs were placed into a reflow oven that was set with the same heating profile as indicated by the solder paste datasheet. Once completed, the boards were removed and then visually inspected for any shifted components or solder bridges during reflow. These issues were reworked, which lead to the final step of power and debug validation that consisted of testing the power rails for continuity, isolation and appropriate voltage in addition to communication with the main MCU over the debug protocol. Once this was verified, the first order bring-up of the MLBs was complete.</p>
                     <img style="margin-bottom: 20px;" src="img/blog/compute-pcb.jpg" width="300" alt="Compute module PCB front and back views">
                     <h4 class="post-subtitle">Manufacturing of first set of connector modules - Jan 15</h4>
                     <p>In order to route the “Macro-bus” that contains the main voltage and analog rails from each of the FSRs and direct them to the compute module, specific connector modules that will also allow the user to resize the armband were created. They contain a printed male and female bracket, 2 magnets, ribbon cable, 5 pogo pins and 5 contact pads to create magnetic pogo pin connectors that will snap and mate together to extend an armband while routing the main signals.</p>
