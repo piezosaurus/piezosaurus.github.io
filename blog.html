@@ -84,10 +84,26 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <h2 class="post-title">
+                        Week 5 Progress
+                    </h2>
+                    <p class="post-meta">... To be posted on Feb 10, 2023</p>
+                </div>
+
+                <hr>
+
+                <div class="post-preview">
+                    <h2 class="post-title">
                         Week 4 Progress
                     </h2>
-                    <p class="post-meta">..To be posted on Feb 3, 2023</p>
-                    
+                    <p class="post-meta">Posted on Feb 3, 2023</p>
+                    <h4 class="post-subtitle">Creating 3 device macros - Jan 29</h4>
+                    <p>In android studio a test UI was created with three buttons (one to execute each macro/task) and a text box outputs which task is clicked for debugging purposes. Since the Bluetooth functionality is not fully set up yet, the buttons are used in place to simulate a detection of a gesture from the band. The first task sets a timer for five seconds in the device’s clock app. The second task opens google maps and shows the location of Googleplex in California. The last task sets an alarm for 8am in the device's clock app. These three tasks make use of android intents for android developers. Some other tasks that were briefly looked into but not fully functioning are opening a webpage, making a call, taking a photo, and playing music on YouTube Music. For these tasks, more time is needed to debug and fine tune them. For some reason opening a webpage doesn’t function at the moment. Making a call requires a more complex permission request than most app intents, so that task was left to deal with later. Currently taking a photo does open the device's camera app but the user still needs to press the button to take the photo. Also the captured photo doesn’t properly save to the devices photo library. There doesn’t seem to be much existing documentation on how to play music through YouTube Music. Originally YouTube Music was chosen because that app was available on the emulator we were testing on. However we have acquired a physical device to test on which can have Spotify running from it. Spotify seems to have more documentation surrounding how to use app intents on it so that will be tested at a later date.</p>
+                    <h4 class="post-subtitle">Finished firmware driver for Macro Snap haptics - Jan 31</h4>
+                    <p>A piezoelectric haptic actuator is being used for feedback to the user on a successful gesture detection. In order to control the actuator, the BOS1901 is being used for boosting and controlling the 12Vpp waveform that causes vibration to the piezo device. To communicate with the BOS1901 and program it to output a certain waveform at a certain time, a SPI bus is connected between it and the NRF52811. This SPI bus was set up in the firmware that implements the Zephyr kernel and words are sent 8 bits at a time sending both the register address and data bytes. After some debugging and logging of the SPI bus on a debugger to make sure the correct data was being sent, the haptic actuator was successfully sent a waveform to cause a vibration detectable by the user. This firmware driver will be incorporated in the main firmware/software loop logic later on.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/haptics.png" width="300" alt="Compute module with haptics connected">
+                    <h4 class="post-subtitle">Android app and wearable device communications - Feb 1</h4>
+                    <p>After the app was able to read values from BLE. Progress is made towards storing data received from BLE and processing them into features for SVM. The frequency of scans received was also increased through a setting in the app so now it can scan for BLE data as fast as possible.</p>
+                    <p>Since the wearable device sends data via BLE and does not receive anything back from the app, the app and wearable will communicate via different status byte values sent through BLE. The wearable device will be in charge of detecting the finger snap based on a calibrated threshold. Once the snap is detected, it will flip a bit in the BLE message and the app will know to start recording values for gesture detection. For calibration, the process will be triggered by a UI button press on the arm band. This would cause the calibration byte in the BLE message to update. The finger snap force is calibrated just on the wearable and stored in the Flash while the gesture calibration info is stored on the app since the wearable does not have enough storage for the SVM model. While going through each stage of calibration, the main idea is that the wearable device will be in charge of keepig track of which stage of the calibration is it in (i.e. how many gestures have been recorded) and the app will update the UI and store data based on the calibration byte. We designed it like this because the app can only receive data from the wearable device but not send data back.</p>
                 </div>
 
                 <hr>
