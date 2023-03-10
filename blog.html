@@ -84,11 +84,27 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <h2 class="post-title">
+                        Week 9 Progress
+                    </h2>
+                    <p class="post-meta">Posted on Mar 10, 2023</p>
+                    <h4 class="post-subtitle">Finalized android app - Mar 3</h4>
+                    <p>During testing we found that the SVM was not able to accurately predict more than 1 gesture at a time which was surprising compared to our first prototype. So we decided to switch to using the k-nearest neighbors algorithm which performed a lot better. We also added some new tasks to the app, including open website and skip song on Spotify. We will be implementing a few more app intents for the symposium. In the situation where a snap is accidentally activated, we implemented a cancel mechanism where you can press the UI button on the armband to cancel the gesture from being performed.</p>
+                    <h4 class="post-subtitle">Finalized firmware code - Mar 3</h4>
+                    <p>Implemented snap detection in firmware that checks for a peak value when the user snaps and calibrates that to detect successful snaps. Also implemented device naming in firmware and UI navigation with the usage of button presses. Finalized state machine code for traversing through calibration phases and sending appropriate data over BLE during calibration and normal usage.</p>
+                    <h4 class="post-subtitle">Assembled final bands - Mar 3</h4>
+                    <p>Permanently placed all PCBs in enclosures and lids/covers in correct locations. Super-glued necessary FSR module lids and parts down in addition to the haptic modules in order to have finished enclosures. Placed all module clamps in location to hold together the band. To suit a variety of arm sizes, we developed 3 sizes of connector modules in order to find the best fit for the user to have the band securely in place.</p>
+                    <img style="margin-bottom: 20px;" src="img/blog/final_band.jpg" height="250" alt="Final band">
+                </div>
+
+                <hr>
+
+                <div class="post-preview">
+                    <h2 class="post-title">
                         Week 8 Progress
                     </h2>
                     <p class="post-meta">Posted on Mar 3, 2023</p>
-                    <h4 class="post-subtitle">Android App with tasks implemented  - Mar 2</h4>
-                    <p>We have app intents working within the Macro Snap App. The 3 tasks are nagtive to address, start a timer, and play a Spotify playlist from the link. Each task can be configured within the app to use different gestures or different durations of the timer, different playlist link, etc. We verified that the app and tasks work on two devices with Android 7.1.1 and Android 11.0. This ensures that our app will work on most devices.</p>
+                    <h4 class="post-subtitle">Android app with tasks implemented  - Mar 2</h4>
+                    <p>We have app intents working within the Macro Snap App. The 3 tasks are navigate to address, start a timer, and play a Spotify playlist from the link. Each task can be configured within the app to use different gestures or different durations of the timer, different playlist link, etc. We verified that the app and tasks work on two devices with Android 7.1.1 and Android 11.0. This ensures that our app will work on most devices.</p>
                     <h4 class="post-subtitle">Assembled 2nd band - Mar 2</h4>
                     <p>We have completed assembly of 2 bands, this will speed up our development and debugging. In addition, we have 3D printed clamps for the modules since the magnets are not strong enough to hold the band together and the band needs to be slightly tight when worn for the FSRs to work best. The beige clamps will be replaced with more sleek white clamps in the final version. The covers for the modules are not added yet because we are still programming the band and thus need access to the progamming headers.</p>
                     <img style="margin-bottom: 4px;" src="img/blog/band2.jpg" height="200" alt="Assembled 2nd band">
